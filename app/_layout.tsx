@@ -35,18 +35,20 @@ function TabsLayout() {
   );
 }
 
-export default function AppLayout() {
+export default function RootLayout() {
   useFrameworkReady();
 
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="tabs">
-        <TabsLayout />
-      </Stack.Screen>
-      <Stack.Screen name="inventory" />
-      <Stack.Screen name="quests" />
-      <Stack.Screen name="settings" />
-    </Stack>
-    <StatusBar style="auto" />
+    <>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="tabs" options={{ headerShown: false }}>
+          <TabsLayout />
+        </Stack.Screen>
+        <Stack.Screen name="inventory" />
+        <Stack.Screen name="quests" />
+        <Stack.Screen name="settings" />
+      </Stack>
+      <StatusBar style="auto" />
+    </>
   );
 }
