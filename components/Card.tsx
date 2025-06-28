@@ -13,7 +13,7 @@ export function Card() {
       <Text style={styles.text}>Let's start developing your app!</Text>
       <TouchableOpacity 
         style={styles.button}
-        onPress={() => router.push('/home')}
+        onPress={() => router.push('/(tabs)/home')}
       >
         <Text style={styles.buttonText}>Get Started</Text>
       </TouchableOpacity>
