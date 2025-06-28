@@ -1,39 +1,6 @@
-import { useEffect } from 'react';
-import { Tabs, Stack } from 'expo-router';
+import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useFrameworkReady } from '@/hooks/useFrameworkReady';
-import { Home, User, MenuSquare } from 'lucide-react-native';
-
-function TabsLayout() {
-  return (
-    <Tabs screenOptions={{
-      headerShown: false,
-      tabBarActiveTintColor: '#007AFF',
-    }}>
-      <Tabs.Screen
-        name="home"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color, size }) => <Home color={color} size={size} />,
-        }}
-      />
-      <Tabs.Screen
-        name="character"
-        options={{
-          title: 'Character',
-          tabBarIcon: ({ color, size }) => <User color={color} size={size} />,
-        }}
-      />
-      <Tabs.Screen
-        name="menu"
-        options={{
-          title: 'Menu',
-          tabBarIcon: ({ color, size }) => <MenuSquare color={color} size={size} />,
-        }}
-      />
-    </Tabs>
-  );
-}
 
 export default function RootLayout() {
   useFrameworkReady();
@@ -41,9 +8,9 @@ export default function RootLayout() {
   return (
     <>
       <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="tabs" options={{ headerShown: false }}>
-          <TabsLayout />
-        </Stack.Screen>
+        {/* The (tabs) layout handles bottom tab navigation */}
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        {/* Additional stack screens */}
         <Stack.Screen name="inventory" />
         <Stack.Screen name="quests" />
         <Stack.Screen name="settings" />
